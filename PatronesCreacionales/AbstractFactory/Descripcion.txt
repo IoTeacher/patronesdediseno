@@ -1,0 +1,37 @@
+El patrón Abstract Factory o Fábrica Abstracta resuelve el problema de crear familias de objetos. Veamos un ejemplo típico de este patrón:
+
+Imaginemos que estamos trabajando con Interfaces Gráficas de Usuario (GUI). Pensemos que, en nuestro programa, tenemos las clases Ventana y Boton. Pongamos, por ejemplo, que tenemos 2 interfaces diferentes: una con colores claros y otra con colores oscuros. Esto nos llevaría a tener 4 clases:
+
+    VentanaClara
+    VentanaOscura
+    BotonClaro
+    BotonOscuro
+
+
+Cuando el usuario decida trabajar con colores claros, se deben crear instancias de VentanaClara y BotonClaro. Sin embargo, si el usuario decide utilizar la interfaz de colores oscuros, deberíamos crear instancias de VentanaOscura y BotonOscuro. La forma más básica de hacerlo sería de esta manera:
+
+Código :
+
+// A la hora de seleccionar la interfaz
+var GUI:String = "clara"; // u "oscura";
+
+// A la hora de crear un botón
+if(GUI == "clara"){
+new BotonClaro();
+}else if(GUI == "oscura"){
+new BotonOscuro();
+}
+
+// A la hora de crear una ventana
+if(GUI == "clara"){
+new VentanaClara();
+}else if(GUI == "oscura"){
+new VentanaOscura();
+}
+
+
+Esto implicaría realizar una comprobación de la interfaz seleccionada cada vez que se quiera crear una Ventana o un Boton.
+
+La mejor opción en este caso sería utilizar el patrón Abstract Factory.
+
+En este patrón se crean ciertas clases adicionales llamadas fábricas. Estas clases son las encargadas de crear los diferentes tipos de ventanas y botones. Veamos un ejemplo de su estructura:
