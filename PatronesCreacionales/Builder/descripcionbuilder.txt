@@ -1,0 +1,39 @@
+Como Patrón de diseño, el patrón builder (Constructor) es usado para permitir la creación de una variedad de objetos complejos desde un objeto fuente (Producto), el objeto fuente se compone de una variedad de partes que contribuyen individualmente a la creación de cada objeto complejo a través de un conjunto de llamadas a interfaces comunes de la clase Abstract Builder.
+
+El patrón builder es creacional.
+
+
+
+En este codigo trabaje de la siguiente manera:
+El patron separa la contruccion de un objeto complejo para su representacion en el mismo peroceso de contrucion.
+class Director(object):
+
+    def __init__(self):
+        self.builder = None
+
+    def construct_building(self):
+        self.builder.new_building()
+        self.builder.build_floor()
+        self.builder.build_size()
+
+    def get_building(self):
+        return self.builder.building
+       
+En la clase se ensamblan las partes del producto y se implementan a la intrface del contructor. 
+class Builder(object):
+
+    def __init__(self):
+        self.building = None
+
+    def new_building(self):
+        self.building = Building()
+
+    def build_floor(self):
+        raise NotImplementedError
+
+    def build_size(self):
+        raise NotImplementedError
+
+
+Definiendo y manteniendo el camino de la representacion que creo. Provee una interfaz para recuperar el producto.
+La clase producto representa la complejidad del prducto en construccion
