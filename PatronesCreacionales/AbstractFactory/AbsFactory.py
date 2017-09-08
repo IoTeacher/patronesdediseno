@@ -1,4 +1,6 @@
-
+Saldaña Alarcon Diego               8/09/17
+Patrones De Diseño                    Instituto Tecnologico de Tijuana
+Patrones Creacionales MAE Rene Solis Reyes
 
 
 // A la hora de seleccionar la interfaz
