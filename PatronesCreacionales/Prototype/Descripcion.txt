@@ -1,0 +1,45 @@
+//El patrón Prototype o Prototipo resuelve el problema de duplicar 
+//objetos ya creados con anterioridad.
+
+//Programa que verifica que los registros ya existenste y 
+//verifica si lo anula lo copia o lo registra.
+
+
+class Prototype:
+    def __init__(self):
+        self._objs = {}
+
+    def registerObject(self, name, obj):
+        """
+        Registrar un Objeto.
+        """
+        self._objs[name] = obj
+
+    def unregisterObject(self, name):
+        """Anular el registro de un objeto"""
+        del self._objs[name]
+
+    def clone(self, name, **attr):
+        """clonar un objeto registrado y agregar """
+        obj = deepcopy(self._objs[name])
+        obj.__dict__.update(attr)
+        return obj
+##///El patrón Prototype añade un método que permita crear una copia de un objeto.
+
+if __name__ == '__main__':
+    class A:
+        pass 
+
+    a = A()
+    prototype = Prototype()
+    prototype.registerObject("a", a)
+    b = prototype.clone("a", a=1, b=2, c=3)
+
+    print(a)
+    print(b.a, b.b, b.c)
+
+##//hay 2 tipos de clonación de objetos: profunda y superficial.
+##// Imaginemos un objeto A que contenga una referencia a un objeto B.
+##// Una clonación profunda haría que la copia del objeto A referenciase 
+##//a una copia del objeto B. Por el contrario, una clonación superficial haría 
+##//que la copia del objeto A apuntase al mismo objeto B que el objeto A original.
