@@ -1,0 +1,37 @@
+
+Alvarez Ortega Estephania                 8/09/17
+Patrones De Diseño                    Instituto Tecnologico de Tijuana
+Patrones Creacionales  Factory               MAE Rene Solis Reyes
+
+--------------------------------------------------------------
+¿Qué es el Patrón Factory?
+El patrón Factory hace parte de los patrones de creación. Te explico, dentro de los patrones de diseño existen tres categorías:
+
+-Patrones de creación.
+-Patrones de comportamiento.
+-Patrones estructurales.
+
+Como su nombre lo indica, la idea de este patrón es tener una fábrica que cree objetos de 
+distinto tipo, esto es suprémamente útil cuando no se sabe con antelación que objeto crear, por lo tanto se 
+crearán en tiempo de ejecución. La factoría hace uso de parámetros para determinar qué objeto debe crear, 
+nosotros (obviamente) debemos de proporcionarle tales parámetros.
+
+
+Una super-clase llamada Persona.
+Dos clases que llevarán por nombre Masculino y Femenino, estas heredan de Persona.
+Una clase Factoria, que nos representará la factoría como tal.
+Un pequeño fichero, al que llamaremos main desde donde se iniciará la aplicación.
+
+
+En la clase Persona se ha sobrescrito el método mágico __str__, para que retorne un pequeño mensaje personalizado a nuestro gusto.
+
+En este caso el parámetro usado por la factoría para decidir qué objeto crear es un char que hace alusión al género.
+
+En el fichero main, cuando escribimos print persona, estamos usando el método mágico __str__ 
+(que ya fue previamente personalizado) para mostrar información del objeto.
+
+Podemos hacer uso de otros métodos definidos en Persona como get_nombre() o get_genero() 
+esto gracias a que el objeto creado (objeto Masculino) hereda de Persona (una relación es-un). 
+
+Se ha creado un objeto Persona, específicamente de género Masculino, hemos pasado el carácter ‘M’ al constructor, 
+por ello la fábrica a decidido crear un objeto Masculino.
