@@ -1,0 +1,40 @@
+class Person:
+def __init__(self):
+self.name = None
+//El patrón Factory Method o Método de Fábrica es una simplificación del
+ patrón Abstract Factory. En un patrón Factory Method sólo existe un producto, 
+ no una familia de ellos. 
+Veamos un ejemplo  utilizado este patrón:
+
+//Programa para saber el genero de una persona registrada o que se registrara
+self.gender = None
+def getName(self):
+return self.name
+def getGender(self):
+return self.gender
+
+///En este patrón se utilizan fábricas, al igual que en el patrón 
+Abstract Factory. Estas fábricas son las encargadas de crear los diferentes 
+tipos de piezas. 
+
+class Male(Person):
+def __init__(self, name):
+print "Hello Mr." + name
+
+
+class Female(Person):
+def __init__(self, name):
+print "Hello Miss." + name
+
+class Factory:
+def getPerson(self, name, gender):
+if gender == 'M':
+return Male(name)
+if gender == 'F':
+return Female(name)
+if __name__ == '__main__':
+  factory = Factory()
+  person = factory.getPerson("", "M")
+
+//Imprime el genero de la persona dependiendo si es Hombre M y Femenio F, 
+mas el nombre de la persona.
